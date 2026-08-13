@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isha Lavanya | Cybersecurity & Tech Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#080c14',
+                        cardBg: '#0f172a',
+                        cardBorder: '#1e293b',
+                        accentBlue: '#38bdf8',
+                        glowBlue: '#1d4ed8',
+                        neonCyan: '#06b6d4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    boxShadow: {
+                        'glow-sm': '0 0 15px rgba(56, 189, 248, 0.15)',
+                        'glow-md': '0 0 25px rgba(56, 189, 248, 0.25)',
+                        'glow-lg': '0 0 35px rgba(59, 130, 246, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #080c14;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.12);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080c14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        /* Subtle Rotating Background Glow */
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 0.15; transform: scale(1); }
+            50% { opacity: 0.25; transform: scale(1.05); }
+        }
+        .bg-glow-blob {
+            animation: subtle-pulse 10s infinite ease-in-out;
+        }
+
+        /* Section Transition Animations */
+        .section-tab {
+            display: none;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .section-tab.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Continuous Rotation for Mandala Background Accent */
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 120s linear infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white relative">
+
+    <!-- Ambient Background Lighting -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none bg-glow-blob -z-10"></div>
+    <div class="fixed bottom-10 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none bg-glow-blob -z-10"></div>
+
+    <!-- SUBTLE MANDALA DECORATIVE BACKGROUND (Bottom-Right Corner, Translucent) -->
+    <div class="fixed bottom-[-60px] right-[-60px] md:bottom-[-80px] md:right-[-80px] pointer-events-none z-0 opacity-[0.06] hover:opacity-[0.12] transition-opacity duration-700">
+        <svg class="w-80 h-80 md:w-[450px] md:h-[450px] text-sky-400 animate-spin-slow" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="250" cy="250" r="230" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" />
+            <circle cx="250" cy="250" r="190" stroke="currentColor" stroke-width="1" />
+            <circle cx="250" cy="250" r="140" stroke="currentColor" stroke-width="1" stroke-dasharray="8 4" />
+            <circle cx="250" cy="250" r="90" stroke="currentColor" stroke-width="1.5" />
+            <g stroke="currentColor" stroke-width="1">
+                <path d="M250,20 Q300,125 250,250 Q200,125 250,20 Z" />
+                <path d="M250,250 Q300,375 250,480 Q200,375 250,250 Z" />
+                <path d="M20,250 Q125,300 250,250 Q125,200 20,250 Z" />
+                <path d="M250,250 Q375,300 480,250 Q375,200 250,250 Z" />
+                <path d="M87,87 Q193,137 250,250 Q137,193 87,87 Z" />
+                <path d="M413,413 Q307,363 250,250 Q363,307 413,413 Z" />
+                <path d="M413,87 Q363,193 250,250 Q307,137 413,87 Z" />
+                <path d="M87,413 Q137,307 250,250 Q193,363 87,413 Z" />
+            </g>
+            <polygon points="250,50 391,108 450,250 391,391 250,450 108,391 50,250 108,108" stroke="currentColor" stroke-width="1" fill="none" />
+            <polygon points="250,90 363,137 410,250 363,363 250,410 137,363 90,250 137,137" stroke="currentColor" stroke-width="0.75" fill="none" />
+        </svg>
+    </div>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo / Name -->
+            <button onclick="switchTab('home')" class="flex items-center space-x-3 text-left group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-glow-sm group-hover:shadow-glow-md transition-all duration-300">
+                    IL
+                </div>
+                <div>
+                    <span class="text-lg font-bold tracking-tight text-white group-hover:text-sky-400 transition-colors">Isha Lavanya</span>
+                    <span class="block text-[10px] font-mono text-sky-400 tracking-wider">CYBERSECURITY STUDENT</span>
+                </div>
+            </button>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 bg-slate-900/60 p-1.5 rounded-full border border-slate-800">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300">
+                    Home
+                </button>
+                <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300">
+                    About Me
+                </button>
+                <button onclick="switchTab('skills')" id="nav-skills" class="nav-btn px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300">
+                    Skills
+                </button>
+                <button onclick="switchTab('education')" id="nav-education" class="nav-btn px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300">
+                    Education
+                </button>
+                <button onclick="switchTab('certifications')" id="nav-certifications" class="nav-btn px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300">
+                    Certifications
+                </button>
+                <button onclick="switchTab('projects')" id="nav-projects" class="nav-btn px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300">
+                    Projects
+                </button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300">
+                    Contact
+                </button>
+            </nav>
+
+            <!-- Quick Link & Mobile Toggle -->
+            <div class="flex items-center space-x-3">
+                <a href="https://github.com/IshaLavanya" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-sky-500/10 text-sky-400 border border-sky-500/30 hover:bg-sky-500/20 hover:border-sky-400 transition-all">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub Profile</span>
+                </a>
+
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu()" id="mob-nav-home" class="mob-nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium">Home</button>
+            <button onclick="switchTab('about'); toggleMobileMenu()" id="mob-nav-about" class="mob-nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium">About Me</button>
+            <button onclick="switchTab('skills'); toggleMobileMenu()" id="mob-nav-skills" class="mob-nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium">Skills</button>
+            <button onclick="switchTab('education'); toggleMobileMenu()" id="mob-nav-education" class="mob-nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium">Education</button>
+            <button onclick="switchTab('certifications'); toggleMobileMenu()" id="mob-nav-certifications" class="mob-nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium">Certifications & Achievements</button>
+            <button onclick="switchTab('projects'); toggleMobileMenu()" id="mob-nav-projects" class="mob-nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium">Projects & Tasks</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" id="mob-nav-contact" class="mob-nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium">Contact</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex-grow z-10 w-full">
+
+        <!-- ================= HOME SECTION ================= -->
+        <section id="section-home" class="section-tab active">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[calc(100vh-14rem)]">
+                
+                <!-- Hero Left Column Text -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>SRMIST 2nd Year Cybersecurity Student</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
+                        Hi, I'm <span class="bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-300 bg-clip-text text-transparent">Isha Lavanya</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-sky-200/80 font-mono h-8 flex items-center">
+                        <i class="fas fa-terminal text-sky-400 mr-2"></i>
+                        <span id="typed-text" class="border-r-2 border-sky-400 pr-1">Cybersecurity Student | Learning & Building Step-by-Step</span>
+                    </p>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+                        I am a 2nd-year Cybersecurity undergraduate at <span class="text-white font-semibold">SRM Institute of Science and Technology</span>. I have a solid focus on cybersecurity fundamentals, practical SOC awareness, and building my coding skills at a realistic, steady pace.
+                    </p>
+
+                    <!-- Key Stats Quick Strip -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                        <div class="glass-card p-3 rounded-xl border border-slate-800 text-center">
+                            <div class="text-2xl font-bold text-sky-400 font-mono">9.51</div>
+                            <div class="text-xs text-slate-400">1st Year CGPA</div>
+                        </div>
+                        <div class="glass-card p-3 rounded-xl border border-slate-800 text-center">
+                            <div class="text-2xl font-bold text-sky-400 font-mono">1</div>
+                            <div class="text-xs text-slate-400">Virtual Internship</div>
+                        </div>
+                        <div class="glass-card p-3 rounded-xl border border-slate-800 text-center">
+                            <div class="text-2xl font-bold text-sky-400 font-mono">4+</div>
+                            <div class="text-xs text-slate-400">Certifications</div>
+                        </div>
+                        <div class="glass-card p-3 rounded-xl border border-slate-800 text-center">
+                            <div class="text-2xl font-bold text-sky-400 font-mono">Finalist</div>
+                            <div class="text-xs text-slate-400">Pentathon 3.0</div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <button onclick="switchTab('about')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold shadow-glow-md hover:shadow-glow-lg hover:from-sky-400 hover:to-blue-500 transition-all flex items-center space-x-2">
+                            <span>About Me</span>
+                            <i class="fas fa-user-circle text-sm"></i>
+                        </button>
+                        
+                        <button onclick="switchTab('certifications')" class="px-6 py-3 rounded-xl bg-slate-900 text-slate-200 border border-slate-700 hover:border-sky-500/50 hover:text-white transition-all flex items-center space-x-2">
+                            <span>View Achievements</span>
+                            <i class="fas fa-award text-sky-400 text-sm"></i>
+                        </button>
+
+                        <button onclick="switchTab('contact')" class="px-6 py-3 rounded-xl bg-transparent text-sky-400 border border-sky-500/30 hover:bg-sky-500/10 transition-all flex items-center space-x-2">
+                            <span>Contact Me</span>
+                            <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- External Profiles Bar -->
+                    <div class="flex items-center space-x-4 pt-4 text-slate-400 border-t border-slate-800/80">
+                        <span class="text-xs uppercase tracking-wider font-mono text-slate-500">Connect:</span>
+                        <a href="https://github.com/IshaLavanya" target="_blank" class="hover:text-sky-400 text-lg transition-colors" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/isha-lavanya-880a09374" target="_blank" class="hover:text-sky-400 text-lg transition-colors" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:isha.lavanya07@gmail.com" class="hover:text-sky-400 text-lg transition-colors" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column Visual Avatar Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-blue-600 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                        
+                        <div class="relative glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/60 shadow-2xl space-y-6">
+                            <!-- Avatar Header -->
+                            <div class="flex items-center space-x-4">
+                                <div class="relative">
+                                    <div class="w-20 h-20 rounded-2xl bg-slate-800 border-2 border-sky-400/50 flex items-center justify-center text-3xl text-sky-400 font-mono font-bold shadow-glow-sm">
+                                        IL
+                                    </div>
+                                    <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 border-2 border-slate-900 rounded-full" title="Active Student"></span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Isha Lavanya</h3>
+                                    <p class="text-xs text-sky-400 font-mono">B.Tech Cybersecurity</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">SRMIST Kattankulathur</p>
+                                </div>
+                            </div>
+
+                            <!-- Terminal-style Bio Card -->
+                            <div class="bg-slate-950/80 rounded-xl p-4 font-mono text-xs text-slate-300 border border-slate-800 space-y-2">
+                                <div class="flex items-center justify-between text-slate-500 border-b border-slate-800 pb-2 mb-2">
+                                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span></span>
+                                    <span>profile.json</span>
+                                </div>
+                                <p><span class="text-sky-400">"status"</span>: <span class="text-emerald-400">"Learning & Building"</span>,</p>
+                                <p><span class="text-sky-400">"focus"</span>: [<span class="text-amber-300">"Ethical Hacking"</span>, <span class="text-amber-300">"SOC Basics"</span>, <span class="text-amber-300">"Web Dev"</span>],</p>
+                                <p><span class="text-sky-400">"coding_level"</span>: <span class="text-purple-400">"Average / Learning"</span>,</p>
+                                <p><span class="text-sky-400">"cgpa"</span>: <span class="text-emerald-400">9.51</span></p>
+                            </div>
+
+                            <!-- Quick Badges -->
+                            <div class="space-y-2">
+                                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Key Specializations & Knowledge</div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-sky-950/80 text-sky-300 text-xs border border-sky-800">Ethical Hacking (Internship)</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-blue-950/80 text-blue-300 text-xs border border-blue-800">Palo Alto SOC</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-indigo-950/80 text-indigo-300 text-xs border border-indigo-800">Java / C / C++ (Basics)</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-cyan-950/80 text-cyan-300 text-xs border border-cyan-800">Web Basics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT ME SECTION ================= -->
+        <section id="section-about" class="section-tab">
+            <div class="space-y-8">
+                <!-- Section Header -->
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-3xl font-extrabold text-white flex items-center gap-3">
+                        <i class="fas fa-user font-normal text-sky-400"></i>
+                        About Me
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Background, interests, and academic journey</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Bio Narrative Card -->
+                    <div class="lg:col-span-2 glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+                        <h3 class="text-2xl font-bold text-white">Hello, I'm Isha Lavanya</h3>
+                        <p class="text-slate-300 leading-relaxed text-base">
+                            I am currently a second-year student pursuing my degree in <span class="text-sky-400 font-semibold">Cybersecurity</span> at <span class="text-white font-medium">SRM Institute of Science and Technology, Kattankulathur</span>. My primary interest lies in practical security, understanding network protocols, and developing foundational software skills.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed text-base">
+                            While I am continuously working to grow my programming skills at a steady, average pace, I enjoy hands-on practical learning—such as completing my EduSkills virtual internship, earning Palo Alto certificates, and taking part in competitions like Pentathon 3.0.
+                        </p>
+
+                        <!-- Highlights Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-slate-800">
+                            <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800">
+                                <div class="p-2 bg-sky-500/10 rounded-lg text-sky-400"><i class="fas fa-shield-halved text-lg"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">1 Virtual Internship Done</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Completed 10-week EduSkills AICTE Virtual Internship in Ethical Hacking with Grade 'O'.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800">
+                                <div class="p-2 bg-blue-500/10 rounded-lg text-blue-400"><i class="fas fa-graduation-cap text-lg"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Academic Performance</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Maintained a 9.51 CGPA during 1st year at SRMIST Kattankulathur.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800">
+                                <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400"><i class="fas fa-trophy text-lg"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Hackathon Finalist</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Advanced to Final Round in Pentathon 3.0 - Hackstreet 4.0.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800">
+                                <div class="p-2 bg-cyan-500/10 rounded-lg text-cyan-400"><i class="fas fa-code text-lg"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Average Coding Skills</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Foundational knowledge in Java, C, C++, Python, HTML/CSS.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side Context & ACM Task Badge Card -->
+                    <div class="space-y-6">
+                        <div class="glass-card p-6 rounded-2xl border border-sky-500/20 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-sky-500/10 rounded-full blur-xl pointer-events-none"></div>
+                            <div class="flex items-center space-x-2 text-sky-400 text-xs font-mono mb-2 uppercase tracking-wider">
+                                <i class="fas fa-microchip"></i>
+                                <span>SRM ACM SIGCHI Task</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Technical Domain Task Portfolio</h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Developed for the <span class="text-sky-300">SRM ACM SIGCHI Technical Domain Recruitment</span>. Demonstrates active section switching, modern dark/blue visual presentation, and a clean overview of academic & certification records.
+                            </p>
+                            <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">Submission Date:</span>
+                                <span class="text-xs font-mono text-emerald-400">August 2026</span>
+                            </div>
+                        </div>
+
+                        <!-- Personal Focus Card -->
+                        <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider font-mono text-sky-400">Current Focus Areas</h4>
+                            <ul class="space-y-2 text-xs text-slate-300">
+                                <li class="flex items-center space-x-2"><i class="fas fa-check text-sky-400 text-[10px]"></i><span>Ethical Hacking & Network Security</span></li>
+                                <li class="flex items-center space-x-2"><i class="fas fa-check text-sky-400 text-[10px]"></i><span>Security Operations (SOC) Basics</span></li>
+                                <li class="flex items-center space-x-2"><i class="fas fa-check text-sky-400 text-[10px]"></i><span>Building Average Programming Fundamentals</span></li>
+                                <li class="flex items-center space-x-2"><i class="fas fa-check text-sky-400 text-[10px]"></i><span>Basic Web Development (HTML/CSS)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SKILLS SECTION ================= -->
+        <section id="section-skills" class="section-tab">
+            <div class="space-y-8">
+                <!-- Section Header -->
+                <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <h2 class="text-3xl font-extrabold text-white flex items-center gap-3">
+                            <i class="fas fa-code text-sky-400"></i>
+                            Technical Skills
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-1">Programming languages (Average/Foundational level), tools, and security concepts</p>
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="filterSkills('all')" class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-sky-500 text-white font-medium">All</button>
+                        <button onclick="filterSkills('programming')" class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800">Programming</button>
+                        <button onclick="filterSkills('security')" class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800">Cybersecurity</button>
+                        <button onclick="filterSkills('tools')" class="skill-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800">Tools & Platforms</button>
+                    </div>
+                </div>
+
+                <!-- Skills Grid Container -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Programming Languages Category (Honest Average Ratings) -->
+                    <div class="skill-card glass-panel p-6 rounded-2xl space-y-4" data-category="programming">
+                        <div class="flex items-center space-x-3 text-sky-400">
+                            <div class="p-2 rounded-xl bg-sky-500/10 border border-sky-500/20"><i class="fas fa-laptop-code text-lg"></i></div>
+                            <h3 class="text-lg font-bold text-white">Programming Basics</h3>
+                        </div>
+                        <div class="space-y-3 pt-2">
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-slate-200">Java</span>
+                                    <span class="text-sky-400">Average / Intermediate</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full w-[60%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-slate-200">C & C++</span>
+                                    <span class="text-sky-400">Foundational</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full w-[50%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-slate-200">Python</span>
+                                    <span class="text-sky-400">Basic / Average</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full w-[45%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Platforms Category -->
+                    <div class="skill-card glass-panel p-6 rounded-2xl space-y-4" data-category="tools">
+                        <div class="flex items-center space-x-3 text-cyan-400">
+                            <div class="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20"><i class="fas fa-wrench text-lg"></i></div>
+                            <h3 class="text-lg font-bold text-white">Tools & Platforms</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center space-x-3">
+                                <i class="fab fa-git-alt text-orange-500 text-xl"></i>
+                                <div><div class="text-xs font-bold text-white">Git</div><div class="text-[10px] text-slate-400">Version Control</div></div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center space-x-3">
+                                <i class="fab fa-github text-white text-xl"></i>
+                                <div><div class="text-xs font-bold text-white">GitHub</div><div class="text-[10px] text-slate-400">Collaboration</div></div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center space-x-3">
+                                <i class="fas fa-code text-blue-400 text-xl"></i>
+                                <div><div class="text-xs font-bold text-white">VS Code</div><div class="text-[10px] text-slate-400">Code Editor</div></div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center space-x-3">
+                                <i class="fas fa-palette text-cyan-400 text-xl"></i>
+                                <div><div class="text-xs font-bold text-white">Canva</div><div class="text-[10px] text-slate-400">Graphics</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cybersecurity & Security Fundamentals Category -->
+                    <div class="skill-card glass-panel p-6 rounded-2xl space-y-4" data-category="security">
+                        <div class="flex items-center space-x-3 text-blue-400">
+                            <div class="p-2 rounded-xl bg-blue-500/10 border border-blue-500/20"><i class="fas fa-user-shield text-lg"></i></div>
+                            <h3 class="text-lg font-bold text-white">Cybersecurity Concepts</h3>
+                        </div>
+                        <div class="space-y-2 pt-2">
+                            <div class="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs flex items-center justify-between">
+                                <span class="text-slate-200">Ethical Hacking Fundamentals</span>
+                                <span class="text-emerald-400 font-mono text-[11px]"><i class="fas fa-check-circle mr-1"></i>Virtual Internship</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs flex items-center justify-between">
+                                <span class="text-slate-200">Security Operations (SOC)</span>
+                                <span class="text-emerald-400 font-mono text-[11px]"><i class="fas fa-check-circle mr-1"></i>Palo Alto Cert</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs flex items-center justify-between">
+                                <span class="text-slate-200">Cybersecurity Fundamentals</span>
+                                <span class="text-emerald-400 font-mono text-[11px]"><i class="fas fa-check-circle mr-1"></i>Palo Alto Cert</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs flex items-center justify-between">
+                                <span class="text-slate-200">Network Protocols & Linux Basics</span>
+                                <span class="text-sky-400 font-mono text-[11px]">Academic</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web & UI Category -->
+                    <div class="skill-card glass-panel p-6 rounded-2xl space-y-4" data-category="programming">
+                        <div class="flex items-center space-x-3 text-indigo-400">
+                            <div class="p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20"><i class="fas fa-globe text-lg"></i></div>
+                            <h3 class="text-lg font-bold text-white">Web Basics</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-200">HTML5</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-200">CSS3 / Tailwind</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-200">Basic JavaScript</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-200">Responsive Web Pages</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EDUCATION SECTION ================= -->
+        <section id="section-education" class="section-tab">
+            <div class="space-y-8">
+                <!-- Section Header -->
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-3xl font-extrabold text-white flex items-center gap-3">
+                        <i class="fas fa-graduation-cap text-sky-400"></i>
+                        Education
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Academic record, scores, and institutional details</p>
+                </div>
+
+                <!-- Vertical Timeline Container -->
+                <div class="relative border-l-2 border-slate-800 ml-4 md:ml-8 space-y-8 pl-6 md:pl-8">
+
+                    <!-- Timeline Item 1: College SRMIST -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-sky-500 border-4 border-slate-950 shadow-glow-sm"></div>
+                        <div class="glass-panel p-6 rounded-2xl space-y-3">
+                            <div class="flex flex-wrap justify-between items-start gap-2">
+                                <div>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 text-xs font-mono border border-sky-500/20">Current Degree</span>
+                                    <h3 class="text-xl font-bold text-white mt-1">SRM Institute of Science and Technology</h3>
+                                    <p class="text-sm text-sky-300 font-medium">B.Tech in Cybersecurity (Year 2)</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400">Kattankulathur, TN</span>
+                            </div>
+                            
+                            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800/80 flex items-center justify-between">
+                                <div>
+                                    <div class="text-xs text-slate-400">First Year Cumulative GPA</div>
+                                    <div class="text-2xl font-extrabold text-emerald-400 font-mono">9.51 CGPA</div>
+                                </div>
+                                <i class="fas fa-award text-emerald-400 text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2: Senior Secondary 12th Grade -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-700 group-hover:bg-sky-400 border-4 border-slate-950 transition-colors"></div>
+                        <div class="glass-card p-6 rounded-2xl space-y-3">
+                            <div class="flex flex-wrap justify-between items-start gap-2">
+                                <div>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 text-xs font-mono">Class XII (CBSE)</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">Delhi Public School, Bhilai</h3>
+                                    <p class="text-xs text-slate-400">Completed in 2025</p>
+                                </div>
+                                <span class="text-lg font-bold text-sky-400 font-mono bg-sky-950/40 px-3 py-1 rounded-lg border border-sky-800/50">80.6%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3: Secondary 10th Grade -->
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-700 group-hover:bg-sky-400 border-4 border-slate-950 transition-colors"></div>
+                        <div class="glass-card p-6 rounded-2xl space-y-3">
+                            <div class="flex flex-wrap justify-between items-start gap-2">
+                                <div>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 text-xs font-mono">Class X (CBSE)</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">Delhi Public School, Bhilai</h3>
+                                    <p class="text-xs text-slate-400">Completed in 2023</p>
+                                </div>
+                                <span class="text-lg font-bold text-emerald-400 font-mono bg-emerald-950/40 px-3 py-1 rounded-lg border border-emerald-800/50">90.8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CERTIFICATIONS & ACHIEVEMENTS SECTION ================= -->
+        <section id="section-certifications" class="section-tab">
+            <div class="space-y-8">
+                <!-- Section Header -->
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-3xl font-extrabold text-white flex items-center gap-3">
+                        <i class="fas fa-certificate text-sky-400"></i>
+                        Certifications & Achievements
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Verified industry courses, virtual internship, and hackathons</p>
+                </div>
+
+                <!-- Certifications Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Cert Card 1: EduSkills Ethical Hacking Internship (THE SINGLE VIRTUAL INTERNSHIP) -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between relative group border border-sky-500/30 ring-1 ring-sky-500/20">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-mono flex items-center gap-1">
+                                    <i class="fas fa-briefcase text-emerald-400"></i>
+                                    <span>Virtual Internship (1)</span>
+                                </span>
+                                <i class="fas fa-user-check text-sky-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-sky-300 transition-colors">Ethical Hacking Virtual Internship</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                10-week Virtual Internship in Ethical Hacking supported by AICTE, Ministry of Education, and EduSkills Academy. Completed with top <span class="text-emerald-400 font-bold">Grade 'O' (Outstanding)</span>.
+                            </p>
+                            <div class="text-xs font-mono text-slate-400">
+                                <i class="far fa-calendar-alt mr-1"></i> Oct – Dec 2025 | ID: STU691b5c810e50d
+                            </div>
+                        </div>
+                        <button onclick="openCertModal('cert-internship')" class="mt-6 w-full py-2.5 rounded-xl bg-sky-950/60 hover:bg-sky-900/80 border border-sky-700/50 text-sky-200 text-xs font-semibold transition-all flex items-center justify-center space-x-2">
+                            <i class="fas fa-expand"></i>
+                            <span>View Verified Internship Cert</span>
+                        </button>
+                    </div>
+
+                    <!-- Cert Card 2: Pentathon 3.0 Hackathon -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between relative group border border-purple-500/20">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/30 text-xs font-mono">Hackathon Finalist</span>
+                                <i class="fas fa-trophy text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Pentathon 3.0 - Hackstreet 4.0</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Advanced to the <span class="text-purple-300 font-bold">FINAL ROUND</span> in Pentathon 3.0 organized by NextGen AI, Department of CINTEL & School of Computing at SRMIST Kattankulathur.
+                            </p>
+                            <div class="text-xs font-mono text-slate-400">
+                                <i class="far fa-calendar-alt mr-1"></i> March 18–20
+                            </div>
+                        </div>
+                        <button onclick="openCertModal('cert-pentathon')" class="mt-6 w-full py-2.5 rounded-xl bg-purple-950/60 hover:bg-purple-900/80 border border-purple-700/50 text-purple-200 text-xs font-semibold transition-all flex items-center justify-center space-x-2">
+                            <i class="fas fa-expand"></i>
+                            <span>View Verified Certificate</span>
+                        </button>
+                    </div>
+
+                    <!-- Cert Card 3: EduSkills Ethical Hacking Course -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between relative group border border-slate-800">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/30 text-xs font-mono">Course Completion</span>
+                                <i class="fas fa-shield-cat text-blue-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">Ethical Hacking Course</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Completed complete curriculum on Ethical Hacking with EduSkills Academy, covering fundamental security concepts and threat awareness.
+                            </p>
+                            <div class="text-xs font-mono text-slate-400">
+                                <i class="far fa-calendar-alt mr-1"></i> Dec 24, 2025 | Cert No: 318394
+                            </div>
+                        </div>
+                        <button onclick="openCertModal('cert-eduskills')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold transition-all flex items-center justify-center space-x-2">
+                            <i class="fas fa-expand"></i>
+                            <span>View Verified Certificate</span>
+                        </button>
+                    </div>
+
+                    <!-- Cert Card 4: Palo Alto Security Operations -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between relative group border border-orange-500/20">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 border border-orange-500/30 text-xs font-mono">Course Certification</span>
+                                <i class="fas fa-server text-orange-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-orange-300 transition-colors">Security Operations Fundamentals</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Palo Alto Networks certification confirming fundamental principles in SOC operations and incident management.
+                            </p>
+                            <div class="text-xs font-mono text-slate-400">
+                                <i class="far fa-calendar-alt mr-1"></i> March 12, 2026
+                            </div>
+                        </div>
+                        <button onclick="openCertModal('cert-paloalto-soc')" class="mt-6 w-full py-2.5 rounded-xl bg-orange-950/40 hover:bg-orange-900/60 border border-orange-700/40 text-orange-200 text-xs font-semibold transition-all flex items-center justify-center space-x-2">
+                            <i class="fas fa-expand"></i>
+                            <span>View Certificate</span>
+                        </button>
+                    </div>
+
+                    <!-- Cert Card 5: Palo Alto Cybersecurity Fundamentals -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between relative group border border-orange-500/20">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 border border-orange-500/30 text-xs font-mono">Course Certification</span>
+                                <i class="fas fa-network-wired text-orange-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-orange-300 transition-colors">Cybersecurity Fundamentals</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Palo Alto Networks course completion on network architecture basics and fundamental security concepts.
+                            </p>
+                            <div class="text-xs font-mono text-slate-400">
+                                <i class="far fa-calendar-alt mr-1"></i> February 1, 2026
+                            </div>
+                        </div>
+                        <button onclick="openCertModal('cert-paloalto-fund')" class="mt-6 w-full py-2.5 rounded-xl bg-orange-950/40 hover:bg-orange-900/60 border border-orange-700/40 text-orange-200 text-xs font-semibold transition-all flex items-center justify-center space-x-2">
+                            <i class="fas fa-expand"></i>
+                            <span>View Certificate</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS & TASKS SECTION ================= -->
+        <section id="section-projects" class="section-tab">
+            <div class="space-y-8">
+                <!-- Section Header -->
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-3xl font-extrabold text-white flex items-center gap-3">
+                        <i class="fas fa-folder-open text-sky-400"></i>
+                        Projects & Submissions
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Highlighted repositories, domain tasks, and practical coursework</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Featured Project 1: ACM SIGCHI Personal Portfolio -->
+                    <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-sky-500/30 space-y-5 relative">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/30 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Deployed Web Task
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Web Development</span>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Student Portfolio Website</h3>
+                            <p class="text-xs text-sky-400 font-mono mt-1">SRM ACM SIGCHI Technical Domain Task</p>
+                        </div>
+
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            A clean, modern, dark/blue themed portfolio website. Designed to display student achievements, single virtual internship details, and educational background using active tab navigation and responsive design.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">HTML5</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">JavaScript</span>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800/80 flex flex-wrap gap-3">
+                            <a href="https://github.com/IshaLavanya" target="_blank" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold border border-slate-700 flex items-center space-x-2 transition-all">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub Repository</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Virtual Internship Hands-on Work -->
+                    <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-mono border border-sky-500/30">
+                                Virtual Internship Work
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Cybersecurity</span>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Ethical Hacking Internship Labs</h3>
+                            <p class="text-xs text-sky-400 font-mono mt-1">EduSkills AICTE 10-Week Virtual Internship</p>
+                        </div>
+
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Practical exercises completed during the EduSkills 10-week virtual internship. Included understanding vulnerability assessment concepts, network scanning fundamentals, and basic security practices.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Ethical Hacking</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Network Security</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">EduSkills</span>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800/80 flex flex-wrap gap-3">
+                            <a href="https://github.com/IshaLavanya" target="_blank" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold border border-slate-700 flex items-center space-x-2 transition-all">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub Profile</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="section-contact" class="section-tab">
+            <div class="space-y-8">
+                <!-- Section Header -->
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-3xl font-extrabold text-white flex items-center gap-3">
+                        <i class="fas fa-paper-plane text-sky-400"></i>
+                        Get In Touch
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Send a message or reach out through official channels</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                    <!-- Contact Details Card -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+                            <h3 class="text-xl font-bold text-white">Contact Information</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Feel free to reach out for student discussions, academic tasks, or team project inquiries.
+                            </p>
+
+                            <div class="space-y-4">
+                                <!-- Email Info Card -->
+                                <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                                    <div class="flex items-center space-x-3 overflow-hidden">
+                                        <div class="p-2.5 rounded-lg bg-sky-500/10 text-sky-400"><i class="fas fa-envelope"></i></div>
+                                        <div class="truncate">
+                                            <div class="text-[10px] text-slate-400 uppercase font-mono">Email Address</div>
+                                            <div class="text-sm font-semibold text-white truncate">isha.lavanya07@gmail.com</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="copyToClipboard('isha.lavanya07@gmail.com', 'email-copy-msg')" class="text-slate-400 hover:text-sky-400 p-2 text-xs" title="Copy Email">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <div id="email-copy-msg" class="text-[11px] text-emerald-400 font-mono hidden text-right pr-2">Copied to clipboard!</div>
+
+                                <!-- GitHub Card -->
+                                <a href="https://github.com/IshaLavanya" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="p-2.5 rounded-lg bg-slate-800 text-white"><i class="fab fa-github"></i></div>
+                                        <div>
+                                            <div class="text-[10px] text-slate-400 uppercase font-mono">GitHub Profile</div>
+                                            <div class="text-sm font-semibold text-white">github.com/IshaLavanya</div>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-external-link-alt text-slate-500 text-xs"></i>
+                                </a>
+
+                                <!-- LinkedIn Card -->
+                                <a href="https://www.linkedin.com/in/isha-lavanya-880a09374" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="p-2.5 rounded-lg bg-blue-600/20 text-blue-400"><i class="fab fa-linkedin"></i></div>
+                                        <div>
+                                            <div class="text-[10px] text-slate-400 uppercase font-mono">LinkedIn Profile</div>
+                                            <div class="text-sm font-semibold text-white">Isha Lavanya</div>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-external-link-alt text-slate-500 text-xs"></i>
+                                </a>
+
+                                <!-- Location Card -->
+                                <div class="flex items-center space-x-3 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                                    <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400"><i class="fas fa-map-marker-alt"></i></div>
+                                    <div>
+                                        <div class="text-[10px] text-slate-400 uppercase font-mono">Institution Location</div>
+                                        <div class="text-sm font-semibold text-white">SRMIST, Kattankulathur, Tamil Nadu</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form Card -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+                            <h3 class="text-xl font-bold text-white">Send Me a Message</h3>
+
+                            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-mono text-slate-300 mb-1.5">Your Name *</label>
+                                        <input type="text" required placeholder="e.g. Alex Smith" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-mono text-slate-300 mb-1.5">Your Email *</label>
+                                        <input type="email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-300 mb-1.5">Subject</label>
+                                    <input type="text" placeholder="e.g. SRM ACM SIGCHI Task / General Message" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 text-sm">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-300 mb-1.5">Message *</label>
+                                    <textarea required rows="4" placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 text-sm resize-none"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold shadow-glow-md hover:shadow-glow-lg transition-all flex items-center justify-center space-x-2">
+                                    <i class="fas fa-paper-plane text-xs"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </form>
+
+                            <!-- Success Banner -->
+                            <div id="form-success-banner" class="hidden p-4 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-mono text-center">
+                                <i class="fas fa-check-circle text-emerald-400 mr-2 text-sm"></i>
+                                Thank you! Your message has been sent successfully.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= CERTIFICATE DETAIL MODAL ================= -->
+    <div id="cert-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel max-w-2xl w-full rounded-2xl border border-sky-500/30 overflow-hidden shadow-2xl relative">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center space-x-2 text-sky-400 font-mono text-xs">
+                    <i class="fas fa-award"></i>
+                    <span>Verified Certificate Viewer</span>
+                </div>
+                <button onclick="closeCertModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div id="modal-body-content" class="p-6 sm:p-8 space-y-6">
+                <!-- Dynamically Populated by JavaScript -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3 bg-slate-950/90 border-t border-slate-800 flex justify-end">
+                <button onclick="closeCertModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold">
+                    Close Preview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="glass-panel border-t border-slate-800/80 py-6 mt-12 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div class="flex items-center space-x-2">
+                <div class="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs">IL</div>
+                <span>Designed & Developed by <strong class="text-white">Isha Lavanya</strong></span>
+            </div>
+            <div class="font-mono text-slate-500 text-[11px]">
+                SRMIST Kattankulathur • ACM SIGCHI Technical Domain
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/IshaLavanya" target="_blank" class="hover:text-sky-400"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/isha-lavanya-880a09374" target="_blank" class="hover:text-sky-400"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:isha.lavanya07@gmail.com" class="hover:text-sky-400"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        const tabs = ['home', 'about', 'skills', 'education', 'certifications', 'projects', 'contact'];
+
+        function switchTab(tabId) {
+            tabs.forEach(id => {
+                const sec = document.getElementById(`section-${id}`);
+                const navBtn = document.getElementById(`nav-${id}`);
+                const mobBtn = document.getElementById(`mob-nav-${id}`);
+
+                if (sec) sec.classList.remove('active');
+                if (navBtn) {
+                    navBtn.classList.remove('bg-sky-500', 'text-white', 'shadow-glow-sm');
+                    navBtn.classList.add('text-slate-400', 'hover:text-white', 'hover:bg-slate-800/50');
+                }
+                if (mobBtn) {
+                    mobBtn.classList.remove('bg-sky-500/20', 'text-sky-400', 'border', 'border-sky-500/30');
+                    mobBtn.classList.add('text-slate-300');
+                }
+            });
+
+            const targetSec = document.getElementById(`section-${tabId}`);
+            const targetNav = document.getElementById(`nav-${tabId}`);
+            const targetMob = document.getElementById(`mob-nav-${tabId}`);
+
+            if (targetSec) {
+                targetSec.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            if (targetNav) {
+                targetNav.classList.add('bg-sky-500', 'text-white', 'shadow-glow-sm');
+                targetNav.classList.remove('text-slate-400', 'hover:text-white', 'hover:bg-slate-800/50');
+            }
+
+            if (targetMob) {
+                targetMob.classList.add('bg-sky-500/20', 'text-sky-400', 'border', 'border-sky-500/30');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            const filterBtns = document.querySelectorAll('.skill-filter-btn');
+
+            filterBtns.forEach(btn => {
+                if (btn.innerText.toLowerCase() === category || (category === 'all' && btn.innerText === 'All')) {
+                    btn.classList.add('bg-sky-500', 'text-white');
+                    btn.classList.remove('bg-slate-900', 'text-slate-400');
+                } else {
+                    btn.classList.remove('bg-sky-500', 'text-white');
+                    btn.classList.add('bg-slate-900', 'text-slate-400');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        const certData = {
+            'cert-internship': {
+                title: '10-Week Ethical Hacking Virtual Internship',
+                issuer: 'EduSkills Academy / AICTE / Ministry of Education',
+                recipient: 'ISHA LAVANYA',
+                details: 'Successfully completed the 10-week Ethical Hacking Virtual Internship during October - December 2025. Awarded Internship Grade: O (Outstanding). This is my single official virtual internship.',
+                dates: 'October - December 2025 | STU691b5c810e50d1763400833',
+                signatories: 'Dr. Buddha Chandrasekhar (AICTE) & Shubhajit Jagadev (EduSkills)',
+                badgeBg: 'from-blue-600 to-cyan-700'
+            },
+            'cert-pentathon': {
+                title: 'Pentathon 3.0 - Hackstreet 4.0 Certificate',
+                issuer: 'SRMIST Kattankulathur - NEXTGEN AI & Dept of CINTEL',
+                recipient: 'ISHA LAVANYA',
+                details: 'Has participated and advanced to the "FINAL ROUND" of Pentathon 3.0 - Hackstreet 4.0 organized by NEXTGEN AI & Department of CINTEL, School of Computing at SRMIST.',
+                dates: 'March 18 to March 20',
+                signatories: 'Dr. S. Selvakumarasamy & Dr. R. Annie Uthra',
+                badgeBg: 'from-purple-600 to-indigo-800'
+            },
+            'cert-eduskills': {
+                title: 'Ethical Hacking Course Completion',
+                issuer: 'EduSkills Academy',
+                recipient: 'ISHA LAVANYA',
+                details: 'Successfully completed the course curriculum for Ethical Hacking with EduSkills Academy.',
+                dates: 'Date: 24/12/2025 | Certificate No: 318394',
+                signatories: 'Mitu Swain - General Manager (L&D), EduSkills',
+                badgeBg: 'from-sky-600 to-blue-800'
+            },
+            'cert-paloalto-soc': {
+                title: 'Security Operations Fundamentals',
+                issuer: 'Palo Alto Networks',
+                recipient: 'ISHA LAVANYA',
+                details: 'Course certificate confirming completion of Security Operations Fundamentals through Palo Alto Networks.',
+                dates: 'Certification Date: March 12, 2026',
+                signatories: 'Nikesh Arora - Chairman & CEO, Palo Alto Networks',
+                badgeBg: 'from-orange-600 to-amber-700'
+            },
+            'cert-paloalto-fund': {
+                title: 'Cybersecurity Fundamentals',
+                issuer: 'Palo Alto Networks',
+                recipient: 'ISHA LAVANYA',
+                details: 'Course certificate confirming completion of Cybersecurity Fundamentals through Palo Alto Networks.',
+                dates: 'Certification Date: February 1, 2026',
+                signatories: 'Nikesh Arora - Chairman & CEO, Palo Alto Networks',
+                badgeBg: 'from-orange-600 to-amber-700'
+            }
+        };
+
+        function openCertModal(certKey) {
+            const data = certData[certKey];
+            if (!data) return;
+
+            const modalBody = document.getElementById('modal-body-content');
+            modalBody.innerHTML = `
+                <div class="p-6 rounded-2xl bg-gradient-to-br ${data.badgeBg} text-white shadow-xl space-y-4 text-center relative overflow-hidden">
+                    <div class="text-[10px] uppercase font-mono tracking-widest text-sky-200">Official Certificate Preview</div>
+                    <h2 class="text-2xl font-extrabold tracking-tight">${data.title}</h2>
+                    <div class="text-xs font-mono text-sky-100">Issued to: <strong class="text-white text-sm uppercase underline decoration-sky-300 decoration-2">${data.recipient}</strong></div>
+                    <p class="text-xs text-slate-100 leading-relaxed max-w-lg mx-auto bg-black/20 p-3 rounded-xl border border-white/10">
+                        ${data.details}
+                    </p>
+                    <div class="pt-2 border-t border-white/20 flex flex-wrap justify-between items-center text-[11px] font-mono text-slate-200">
+                        <span>${data.issuer}</span>
+                        <span>${data.dates}</span>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-xs text-slate-300">
+                    <div class="flex justify-between border-b border-slate-800 pb-2">
+                        <span class="text-slate-400">Signatories / Authorities:</span>
+                        <span class="text-white font-medium">${data.signatories}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-800 pb-2">
+                        <span class="text-slate-400">Student Institution:</span>
+                        <span class="text-sky-400">SRM Institute of Science and Technology</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('cert-modal').classList.remove('hidden');
+        }
+
+        function closeCertModal() {
+            document.getElementById('cert-modal').classList.add('hidden');
+        }
+
+        function copyToClipboard(text, targetMsgId) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            const msgEl = document.getElementById(targetMsgId);
+            if (msgEl) {
+                msgEl.classList.remove('hidden');
+                setTimeout(() => {
+                    msgEl.classList.add('hidden');
+                }, 3000);
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const banner = document.getElementById('form-success-banner');
+            banner.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                banner.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Initialize default view on window load
+        window.onload = function() {
+            switchTab('home');
+        };
+    </script>
+</body>
+</html>
